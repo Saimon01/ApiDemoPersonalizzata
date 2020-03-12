@@ -8,14 +8,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDemoPersonalizzata.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class OperationValues : Controller
     {
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public double GetMedia(double a,double b)
         {
-            return new string[] { "value1", "value2" };
+            return a/b;
+        }
+        [HttpGet]
+        public double GetPercentuale(double percentuale, double numero)
+        {
+            Console.WriteLine("inserisci una percentuale");
+            Console.WriteLine("Inserisci un numero");
+            return (percentuale/100)*numero;
         }
 
         // GET api/<controller>/5
