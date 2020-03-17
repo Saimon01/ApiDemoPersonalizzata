@@ -8,14 +8,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDemoPersonalizzata.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]/[action]")]
     public class OperationValues : Controller
     {
         // GET: api/<controller>
         [HttpGet]
-        public double GetMedia(double a,double b)
+        public double ConvertitorePiediAMetri(int piedi)
         {
-            return a/b;
+            
+            return piedi/3.281;
+            
+        }
+        // GET: api/<controller>
+        [HttpGet]
+        public double ConvertitoreMetriAPiedi(int metri)
+        {
+
+            return metri * 3.281;
+
         }
         [HttpGet]
         public double GetPercentuale(double percentuale, double numero)
