@@ -20,8 +20,7 @@ namespace ApiDemoPersonalizzata.Controllers
         [HttpGet]
         public double GetPercentuale(double percentuale, double numero)
         {
-            Console.WriteLine("inserisci una percentuale");
-            Console.WriteLine("Inserisci un numero");
+            
             return (percentuale/100)*numero;
         }
 
