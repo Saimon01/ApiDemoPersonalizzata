@@ -34,16 +34,20 @@ namespace ClientDemoPersonalizzata
             string uri1 = $"https://localhost:44399/api/OperationValues/ConvertitoreMetriAPiedi/ConvertitoreMetriAPiedi?metri={metri}";
             HttpResponseMessage response = await cliente.GetAsync(uri1);
             string content = await response.Content.ReadAsStringAsync();
-            ris1 = JsonConvert.DeserializeObject<int>(content);
+            ris1 = JsonConvert.DeserializeObject<double>(content);
             Dispatcher.Invoke(() => lblRisultatoPiedi.Content = ris1);
         }
 
-        private void btnCalcolaMetri_Click(object sender, RoutedEventArgs e)
+        private async void btnCalcolaMetri_Click(object sender, RoutedEventArgs e)
         {
             double ris2 = 0;
             double piedi = Convert.ToDouble(txtPiedi.Text);
-            HttpClient Cliente2 = new HttpClient();
+            HttpClient cliente2 = new HttpClient();
             string uri2 = $"https://localhost:44399/api/OperationValues/ConvertitorePiediAMetri/ConvertitorePiediAMetri?piedi={piedi}";
+            HttpResponseMessage response2 = await cliente2.GetAsync(uri2);
+            string content2 = await response2.Content.ReadAsStringAsync();
+            ris2 = JsonConvert.DeserializeObject<double>(content2);
+            Dispatcher.Invoke(() => lblRisultatoMetri.Content = ris2);
         }
     }
 }
